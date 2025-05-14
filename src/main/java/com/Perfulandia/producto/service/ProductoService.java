@@ -16,7 +16,6 @@ public class ProductoService {
     private ProductoRepository productoRepository;
 
     public List<Producto> findAll(){
-
         return productoRepository.findAll();
     }
 
