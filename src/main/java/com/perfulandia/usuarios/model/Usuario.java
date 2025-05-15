@@ -29,6 +29,9 @@ public class Usuario {
     @Column(nullable = false)
     private String correoElectronico;
 
+    @Column(nullable = true)
+    private String direccionEnvio;
+
     @Column(nullable = false)
-    private String direcionEnvio;
+    private String rol;
 }
