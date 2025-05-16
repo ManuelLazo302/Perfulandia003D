@@ -20,5 +20,18 @@ public class SucursalService {
         return sucursalRepository.findAll();
     }
 
+    public Sucursal findById(Long id){
+        return sucursalRepository.findById(id).get();
+    }
+
+    public Sucursal save (Sucursal sucursal) {
+        return sucursalRepository.save(sucursal);
+    }
+
+    public void delete(Long id) {
+        sucursalRepository.deleteById(id);
+    }
+
+
 
 }

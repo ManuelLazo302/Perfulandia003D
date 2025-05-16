@@ -38,8 +38,4 @@ public class Sucursal {
     @Column(nullable = false)
     private Integer Telefono;
 
-
-
-
-
 }
