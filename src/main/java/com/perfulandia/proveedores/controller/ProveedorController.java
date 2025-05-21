@@ -39,7 +39,31 @@ public class ProveedorController {
         try { Proveedor proveedor = proveedorService.findById(id);
             return ResponseEntity.ok(proveedor);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Proveedor> actualizar(@PathVariable Integer id, @RequestBody Proveedor proveedor){
+        try {
+            Proveedor prov = proveedorService.findById(id);
+            prov.setId_proveedor(id);
+            prov.setNombre_proveedor(proveedor.getNombre_proveedor());
+            prov.setFono_proveedor(proveedor.getFono_proveedor());
+            prov.setEmail_proveedor(proveedor.getEmail_proveedor());
+
+            proveedorService.save(prov);
+            return ResponseEntity.ok(proveedor);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id){
+        try {
+            proveedorService.delete(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
         }
     }
 }
