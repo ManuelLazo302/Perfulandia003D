@@ -16,10 +16,10 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_producto;
 
-    @Column(length = 25, nullable = false)
+    @Column(length = 50, nullable = false)
     private String nombre_producto;
 
-    @Column (length = 25, nullable = false)
+    @Column (length = 50, nullable = false)
     private String categoria_producto;
 
     @Column (precision = 10, nullable = false)
@@ -28,7 +28,7 @@ public class Producto {
     @Column (precision = 10, nullable = false)
     private int stock_producto;
 
-    @Column (length = 100)
+    @Column (length = 200)
     private String descripcion_producto;
 
 }
