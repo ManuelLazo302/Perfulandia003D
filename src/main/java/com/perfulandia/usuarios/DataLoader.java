@@ -19,14 +19,49 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Faker faker = new Faker();
 
-        for (int i = 0; i < 25; i++) {
+        int numCliente = 20;
+        int numEmpleado = 6;
+        int numGerente = 3;
+        int numAdmin = 1;
+
+        for (int i = 0; i < numCliente; i++) {
             Usuario usuario = new Usuario();
             usuario.setRun(faker.idNumber().valid());
             usuario.setNombre(faker.name().firstName());
             usuario.setApellido(faker.name().lastName());
             usuario.setCorreoElectronico(faker.internet().emailAddress());
             usuario.setDireccionEnvio(faker.address().fullAddress());
-            usuario.setRol(faker.job().position());
+            usuario.setRol("Cliente");
+            usuarioRepository.save(usuario);
+        }
+
+        for (int i = 0; i < numEmpleado; i++) {
+            Usuario usuario = new Usuario();
+            usuario.setRun(faker.idNumber().valid());
+            usuario.setNombre(faker.name().firstName());
+            usuario.setApellido(faker.name().lastName());
+            usuario.setCorreoElectronico(faker.internet().emailAddress());
+            usuario.setRol("Empleado de Ventas");
+            usuarioRepository.save(usuario);
+        }
+
+        for (int i = 0; i < numGerente; i++) {
+            Usuario usuario = new Usuario();
+            usuario.setRun(faker.idNumber().valid());
+            usuario.setNombre(faker.name().firstName());
+            usuario.setApellido(faker.name().lastName());
+            usuario.setCorreoElectronico(faker.internet().emailAddress());
+            usuario.setRol("Gerente Sucursal");
+            usuarioRepository.save(usuario);
+        }
+
+        for (int i = 0; i < numAdmin; i++) {
+            Usuario usuario = new Usuario();
+            usuario.setRun(faker.idNumber().valid());
+            usuario.setNombre(faker.name().firstName());
+            usuario.setApellido(faker.name().lastName());
+            usuario.setCorreoElectronico(faker.internet().emailAddress());
+            usuario.setRol("Administrador");
             usuarioRepository.save(usuario);
         }
     }
